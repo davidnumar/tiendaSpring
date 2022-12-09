@@ -1,5 +1,8 @@
 package com.ejercicio.tienda.service;
 
-public interface ProductoService {
+import com.ejercicio.tienda.entities.Producto;
 
+public interface ProductoService {
+	public Producto guardarProducto(Producto producto);
+	
 }
