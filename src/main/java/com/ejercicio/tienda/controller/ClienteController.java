@@ -98,6 +98,11 @@ public class ClienteController {
 			
 			aux = servicio.updateCliente(id, cliente);
 			
+			if(Objects.isNull(aux)) {
+				response.put("mensaje", "El cliente con ID: "+id+" no existe");
+				return new ResponseEntity<Map<String,Object>>(response, HttpStatus.NOT_FOUND);
+			}
+			
 		} catch (DataAccessException e) {
 			//si hay error tipo excepcion
 			response.put("mensaje", "Error al realizar la actualizacion en la base de datos");
