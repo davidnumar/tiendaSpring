@@ -2,14 +2,15 @@ package com.ejercicio.tienda.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ejercicio.tienda.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.ejercicio.tienda.entities.Producto;
 
+@Service
 public class ProductoServiceImpl implements ProductoService{
 	
 	@Autowired
