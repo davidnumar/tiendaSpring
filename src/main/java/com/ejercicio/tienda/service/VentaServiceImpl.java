@@ -15,6 +15,7 @@ public class VentaServiceImpl implements VentaService{
 	@Autowired
 	private VentaRepository repositorio;
 	
+	//GET ALL
 	@Override
 	@Transactional(readOnly = true)
 	public List<Venta> mostrarVentas() {
@@ -22,6 +23,7 @@ public class VentaServiceImpl implements VentaService{
 		return (List<Venta>) repositorio.findAll();
 	}
 
+	//GET
 	@Override
 	@Transactional(readOnly = true)
 	public Venta buscarVenta(long id) {
@@ -29,6 +31,7 @@ public class VentaServiceImpl implements VentaService{
 		return repositorio.findById(id).orElse(null);
 	}
 
+	//CREATE
 	@Override
 	@Transactional
 	public Venta guardarVenta(Venta venta) {
@@ -36,6 +39,7 @@ public class VentaServiceImpl implements VentaService{
 		return repositorio.save(venta);
 	}
 
+	//BORRAR
 	@Override
 	@Transactional
 	public Venta borrarVenta(long id) {
@@ -44,6 +48,22 @@ public class VentaServiceImpl implements VentaService{
 		repositorio.deleteById(id);
 		
 		return ventaBorrada;
+	}
+
+	//UPDATE
+	@Override
+	@Transactional
+	public Venta updateVenta(long id, Venta venta) {
+		 Venta v = this.buscarVenta(id);
+		 v.setCantidad(venta.getCantidad());
+		 v.setCliente(venta.getCliente());
+		 v.setFolio(venta.getFolio());
+		 v.setIva(venta.getIva());
+		 v.setProducto(venta.getProducto());
+		 v.setSubtotal(venta.getSubtotal());
+		 v.setTotal(venta.getSubtotal());
+		 this.guardarVenta(v);
+		 return v;
 	}
 
 }

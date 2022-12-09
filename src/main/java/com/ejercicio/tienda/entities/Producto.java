@@ -77,6 +77,9 @@ public class Producto implements Serializable {
 	public void setExistencias(int existencias) {
 		this.existencias = existencias;
 	}
-	
-	
+
+	public Producto() {
+		super();
+	}
+
 }

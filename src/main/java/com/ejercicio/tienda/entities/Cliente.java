@@ -69,6 +69,19 @@ public class Cliente implements Serializable {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+
+	public Cliente() {
+		super();
+	}
+
+	public Cliente(long numero_cliente, String nombre, String apellidos, String sexo, int telefono) {
+		super();
+		this.numero_cliente = numero_cliente;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.sexo = sexo;
+		this.telefono = telefono;
+	}
 	
 	
 	
