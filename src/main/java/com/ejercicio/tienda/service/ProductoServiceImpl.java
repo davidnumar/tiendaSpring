@@ -38,6 +38,7 @@ public class ProductoServiceImpl implements ProductoService{
 
 
 	@Override
+	@Transactional
 	public Producto borrarProducto(long id) {
 		Producto borrado = mostrarProducto(id);
 		repositorio.deleteById(id);

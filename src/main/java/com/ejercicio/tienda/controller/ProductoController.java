@@ -111,8 +111,7 @@ public class ProductoController {
 		Map<String,Object> response = new HashMap<>();
 		
 		try {
-			prod = servicio.mostrarProducto(id);
-			
+			//if (servicio.mostrarProducto(id)id == null)
 			prod = servicio.borrarProducto(id);
 		} catch (DataAccessException e) {
 			//si hay error desde la base de datos
