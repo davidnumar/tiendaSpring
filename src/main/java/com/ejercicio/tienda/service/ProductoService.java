@@ -6,4 +6,7 @@ import com.ejercicio.tienda.entities.Producto;
 
 public interface ProductoService {
 
+	public List<Producto> mostrarProductos();
+	
+	public Producto mostrarProducto(long id);
 }
