@@ -1,13 +1,11 @@
 package com.ejercicio.tienda.entities;
 
 import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,18 +22,18 @@ public class Venta implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String folio; //mirar
+	private long folio; 
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-	@JoinColumn(name="id_venta")
-	private Cliente num_cliente;
+	private Cliente cliente;
+	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-	@JoinColumn(name="id_venta")
-	private Producto clave_prod;
+	private Producto producto;
+	
 	
 	private int cantidad;
 	
@@ -45,40 +43,28 @@ public class Venta implements Serializable {
 	
 	private double total;
 
-	public Venta(String folio, Cliente num_cliente, Producto clave_prod, int cantidad, double subtotal, int iva,
-			double total) {
-		super();
-		this.folio = folio;
-		this.num_cliente = num_cliente;
-		this.clave_prod = clave_prod;
-		this.cantidad = cantidad;
-		this.subtotal = subtotal;
-		this.iva = iva;
-		this.total = total;
-	}
-
-	public String getFolio() {
+	public long getFolio() {
 		return folio;
 	}
 
-	public void setFolio(String folio) {
+	public void setFolio(long folio) {
 		this.folio = folio;
 	}
 
-	public Cliente getNum_cliente() {
-		return num_cliente;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setNum_cliente(Cliente num_cliente) {
-		this.num_cliente = num_cliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public Producto getClave_prod() {
-		return clave_prod;
+	public Producto getProducto() {
+		return producto;
 	}
 
-	public void setClave_prod(Producto clave_prod) {
-		this.clave_prod = clave_prod;
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 	public int getCantidad() {
@@ -112,11 +98,6 @@ public class Venta implements Serializable {
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	
-	
-	
-	
-	
-	
 
+	
 }

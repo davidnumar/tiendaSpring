@@ -19,7 +19,7 @@ public class Cliente implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long numero_Cliente;
+	private long numero_cliente;
 	
 	private String nombre;
 	
@@ -29,21 +29,13 @@ public class Cliente implements Serializable {
 	
 	private int telefono;
 
-	public Cliente(long numero_Cliente, String nombre, String apellidos, String sexo, int telefono) {
-		
-		this.numero_Cliente = numero_Cliente;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.sexo = sexo;
-		this.telefono = telefono;
-	}
+	
 
 	public long getNumero_Cliente() {
-		return numero_Cliente;
+		return numero_cliente;
 	}
 
 	public void setNumero_Cliente(long numero_Cliente) {
-		this.numero_Cliente = numero_Cliente;
 	}
 
 	public String getNombre() {
