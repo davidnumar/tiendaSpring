@@ -1,14 +1,10 @@
 package com.ejercicio.tienda.service;
 
-import com.ejercicio.tienda.entities.Producto;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ProductoServiceImpl implements ProductoService{
-
 	
-	@Override
-	public Producto guardarProducto(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	@Autowired
+	private ProductoRepository repositorio;
 
 }
