@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-src/main/resources/
+# src/main/resources/
 
 ### STS ###
 .apt_generated
@@ -34,4 +34,4 @@ build/
 .vscode/
 
 ### Eclipse ###
-/src/main/resources/
+

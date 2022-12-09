@@ -1,6 +1,8 @@
 package com.ejercicio.tienda.entities;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,12 +27,12 @@ public class Venta implements Serializable {
 	private long folio; 
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Cliente cliente;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Producto producto;
 	
@@ -98,6 +100,23 @@ public class Venta implements Serializable {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+
+	public Venta() {
+		super();
+	}
+
+	public Venta(long folio, Cliente cliente, Producto producto, int cantidad, double subtotal, int iva, double total) {
+		super();
+		this.folio = folio;
+		this.cliente = cliente;
+		this.producto = producto;
+		this.cantidad = cantidad;
+		this.subtotal = subtotal;
+		this.iva = iva;
+		this.total = total;
+	}
+	
+	
 
 	
 }
