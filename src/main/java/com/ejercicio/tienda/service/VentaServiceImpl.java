@@ -2,8 +2,11 @@ package com.ejercicio.tienda.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ejercicio.tienda.entities.Venta;
 
+@Service
 public class VentaServiceImpl implements VentaService{
 
 	@Override
