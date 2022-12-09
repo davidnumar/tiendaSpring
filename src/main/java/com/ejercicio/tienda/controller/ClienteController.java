@@ -96,7 +96,7 @@ public class ClienteController {
 		
 		try {
 			
-			aux = servicio.buscarCliente(id);
+			aux = servicio.updateCliente(id, cliente);
 			
 		} catch (DataAccessException e) {
 			//si hay error tipo excepcion
@@ -105,32 +105,6 @@ public class ClienteController {
 			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		
-		
-		if(Objects.nonNull(aux)) {
-			
-			aux.setNombre(cliente.getNombre());
-			aux.setApellidos(cliente.getApellidos());
-			aux.setSexo(cliente.getSexo());
-			aux.setTelefono(cliente.getTelefono());
-			
-			
-			
-		}else {
-			response.put("mensaje", "Error: no se puede editar, el cliente con ID: "+id+" no existe");
-			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.NOT_FOUND);
-		}
-		
-		
-		try {
-			
-			aux=servicio.guardarCliente(aux);
-			
-		} catch (DataAccessException e) {
-			//si hay error tipo excepcion
-			response.put("mensaje", "Error al realizar la actualizacion en la base de datos");
-			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
-		}
 		
 		response.put("mensaje", "El cliente ha sido modificado correctamente");
 		response.put("cliente", aux);
