@@ -29,7 +29,7 @@ public class Venta implements Serializable {
 	private long folio; 
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Cliente cliente;
 	
@@ -39,7 +39,7 @@ public class Venta implements Serializable {
 	private Producto producto;
 	*/
 	
-	@OneToMany
+	@OneToMany(cascade = {CascadeType.ALL})
 	private List<Producto> productos;
 	
 	
