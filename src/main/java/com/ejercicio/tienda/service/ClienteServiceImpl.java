@@ -38,4 +38,10 @@ public class ClienteServiceImpl implements ClienteService {
 		repositorio.deleteById(id);
 		return borrado;
 	}
+
+	@Override
+	public Cliente updateCliente(long id, Cliente c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

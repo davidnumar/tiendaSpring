@@ -17,5 +17,8 @@ public interface ClienteService {
 			
 	//borrar cliente
 	public Cliente borrarCliente(long id);
+	
+	
+	public Cliente updateCliente (long id, Cliente c);
 
 }
