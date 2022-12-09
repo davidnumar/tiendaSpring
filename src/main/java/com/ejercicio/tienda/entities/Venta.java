@@ -1,6 +1,7 @@
 package com.ejercicio.tienda.entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -27,14 +29,18 @@ public class Venta implements Serializable {
 	private long folio; 
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Cliente cliente;
 	
-	
+	/*
 	@ManyToOne(fetch=FetchType.LAZY, cascade = {CascadeType.ALL})
 	@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 	private Producto producto;
+	*/
+	
+	@OneToMany
+	private List<Producto> productos;
 	
 	
 	private int cantidad;
@@ -61,12 +67,13 @@ public class Venta implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public Producto getProducto() {
-		return producto;
+
+	public List<Producto> getProductos() {
+		return productos;
 	}
 
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
 	}
 
 	public int getCantidad() {
@@ -105,16 +112,19 @@ public class Venta implements Serializable {
 		super();
 	}
 
-	public Venta(long folio, Cliente cliente, Producto producto, int cantidad, double subtotal, int iva, double total) {
+	public Venta(long folio, Cliente cliente, List<Producto> productos, int cantidad, double subtotal, int iva,
+			double total) {
 		super();
 		this.folio = folio;
 		this.cliente = cliente;
-		this.producto = producto;
+		this.productos = productos;
 		this.cantidad = cantidad;
 		this.subtotal = subtotal;
 		this.iva = iva;
 		this.total = total;
 	}
+
+	
 	
 	
 

@@ -59,7 +59,7 @@ public class VentaServiceImpl implements VentaService{
 		 v.setCliente(venta.getCliente());
 		 v.setFolio(venta.getFolio());
 		 v.setIva(venta.getIva());
-		 v.setProducto(venta.getProducto());
+		 v.setProductos(venta.getProductos());
 		 v.setSubtotal(venta.getSubtotal());
 		 v.setTotal(venta.getSubtotal());
 		 this.guardarVenta(v);

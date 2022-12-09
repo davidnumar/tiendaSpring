@@ -8,8 +8,12 @@ INSERT INTO productos(nombre,descripcion,precio,existencias) VALUES ('Play Stati
 INSERT INTO productos(nombre,descripcion,precio,existencias) VALUES ('Xbox One','Consola conectable tv',280,10000);
 INSERT INTO productos(nombre,descripcion,precio,existencias) VALUES ('MSI gaming pc','Portatil gaming',200,5000);
 INSERT INTO productos(nombre,descripcion,precio,existencias) VALUES ('Nintendo Wii','Consola conectable tv vintage',100,100);
-INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (5,21,2000,2002,1,3);
-INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (2,21,400,422,2,2);
-INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (1,21,500,600,3,1);
-INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (3,21,600.5,756.9,4,5);
-INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (2,21,390.55,500,5,4);
+#INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (5,21,2000,2002,1,3);
+#INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (2,21,400,422,2,2);
+#INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (1,21,500,600,3,1);
+#INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente,producto_clave) VALUES (3,21,600.5,756.9,4,5);
+INSERT INTO ventas(cantidad,iva,subtotal,total,cliente_numero_cliente) VALUES (2,21,390.55,500,5);
+
+INSERT INTO ventas_productos(venta_folio,productos_clave) VALUES (1,1);
+INSERT INTO ventas_productos(venta_folio,productos_clave) VALUES (1,2);
+INSERT INTO ventas_productos(venta_folio,productos_clave) VALUES (1,3);
