@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 
 import com.ejercicio.tienda.repository.ProductoRepository;
 
-@Service
+
 import com.ejercicio.tienda.repository.ProductoRepository;
 
+@Service
 public class ProductoServiceImpl implements ProductoService{
 	
 	@Autowired
