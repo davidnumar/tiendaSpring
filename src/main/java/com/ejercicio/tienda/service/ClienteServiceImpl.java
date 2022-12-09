@@ -1,6 +1,7 @@
 package com.ejercicio.tienda.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,7 +42,19 @@ public class ClienteServiceImpl implements ClienteService {
 
 	@Override
 	public Cliente updateCliente(long id, Cliente c) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Cliente aux = repositorio.findById(id).orElse(null);
+		
+		if(Objects.isNull(aux)) {
+			return null;
+		}
+		
+		aux.setNombre(c.getNombre());
+		aux.setApellidos(c.getApellidos());
+		aux.setSexo(c.getSexo());
+		aux.setTelefono(c.getTelefono());
+		
+		return repositorio.save(aux);
+		
 	}
 }
